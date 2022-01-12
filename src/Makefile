@@ -1,6 +1,6 @@
 CC = g++
 LIBS = -L lib -l sfml-graphics -l sfml-window -l sfml-system -l sfml-audio
-INC = -I include # -I header
+INC = -I include# -I header
 # H = header/
 
 ifdef OS
