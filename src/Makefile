@@ -1,19 +1,29 @@
-CCOMP = g++
+CC = g++
 LIBS = -L lib -l sfml-graphics -l sfml-window -l sfml-system -l sfml-audio
-OUT = main
-EXE = $(OUT).exe
+INC = -I include # -I header
+# H = header/
 
-all: clean compile link run
+ifdef OS
+	D = -D WIN
+endif
 
-run:
-	./$(OUT)
+onas.exe: main.o area.o
+	$(CC) $^ -o $@ $(LIBS)
 
-compile:
-	$(CCOMP) -I include -c main.cpp
+main.o: main.cpp
+	$(CC) $(INC) $D -c $<
 
-link:
-	$(CCOMP) $(OUT).o -o $(EXE) $(LIBS)
-	rm $(OUT).o
+area.o: area.cpp area.hpp
+	$(CC) $(INC) $D -c $<
 
 clean:
-	rm -f $(EXE) $(OUT)
+	rm -f *.exe *.o
+
+build: onas.exe
+
+remake: clean build
+
+run: onas.exe
+	./$^
+
+rerun: clean run
