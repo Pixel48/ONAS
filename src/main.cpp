@@ -70,8 +70,8 @@ int main() {
 
       if(moveLeft.isEntering()) {
         printf("Left\n");
-        screenView--;
-        if(screenView < 0) screenView = 3;
+        screenView += 3;
+        screenView %= 4;
       }
       if(moveRight.isEntering()) {
         printf("Right\n");
