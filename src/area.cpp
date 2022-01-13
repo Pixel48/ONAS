@@ -30,20 +30,12 @@ bool Area::isHovered() {
 }
 
 bool Area::isEntering() {
-  // if(isHovered() && !hasEntered_) {
-  //   hasEntered_ = true;
-  //   return true;
-  // } else return false;
   if(isHovered()) {
     if(hasEntered_) return false;
     else {
       hasEntered_ = true;
       return true;
     }
-    // if(!hasEntered_) {
-    //   hasEntered_ = true;
-    //   return true;
-    // } else return false;
   } else {
     hasEntered_ = false;
     return false;
@@ -52,7 +44,10 @@ bool Area::isEntering() {
 
 // bool Area::() {}
 
-// bool Area::isClicked() {}
+bool Area::isClicked() {
+  if(isHovered() && sf::Mouse::isButtonPressed(sf::Mouse::Left)) return true;
+  else return false;
+}
 
 // bool Area::isReleased() {}
 

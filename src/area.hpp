@@ -8,7 +8,7 @@ public:
   bool isHovered();
   bool isEntering();
   // bool isExiting();
-  // bool isClicked();
+  bool isClicked();
   // bool isReleased();
   // bool isPressed();
 
