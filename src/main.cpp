@@ -4,7 +4,6 @@
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(1920, 1080), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
-  // window.setFramerateLimit(15);
 
   sf::Texture N;
   if(!N.loadFromFile("img/N.png")) {
@@ -27,27 +26,13 @@ int main() {
     return 1;
   }
 
-  // for(int i = 0; i < 4; i++) {
-  //   screen[i] = (char*)malloc(sizeof(char) * 11);
-  // }
-  // screen[0] = "img/N.png";
-  // screen[1] = "img/E.png";
-  // screen[2] = "img/S.png";
-  // screen[3] = "img/W.png";
   int screenView = 0;
 
-  // sf::Texture BackgroundTexture;
   sf::Sprite bg;
-  // if(!BackgroundTexture.loadFromFile(screen[screenView])) {
-  //   printf("Error loading background.png\n");
-  //   return 1;
-  // }
-  // bg.setTexture(N);
 
   Area moveLeft(-1, 0, 101, 1080);
   Area moveRight(1920-100, 0, 101, 1080);
 
-  // printf("Starting main loop...\n");
   //! main event loop
   while(window.isOpen()) {
     sf::Event evnt;
