@@ -2,8 +2,11 @@
 #include "isfml.hpp"
 #include "area.hpp"
 
+#define VH = 1920
+#define VW = 1080
+
 int main() {
-  sf::RenderWindow window(sf::VideoMode(1920, 1080), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
+  sf::RenderWindow window(sf::VideoMode(VH, VW), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
 
   sf::Texture N;
   if(!N.loadFromFile("img/N.png")) {
