@@ -11,8 +11,12 @@ public:
   bool isClicked();
   // bool isReleased();
   // bool isPressed();
+  bool isEnabled();
+  void enable();
+  void disable();
 
 private:
+  bool enabled_;
   bool hasEntered_;
   bool hasExited_;
   bool hasReleased_;
