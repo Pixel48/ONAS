@@ -34,3 +34,6 @@
 # docs
 *.doc
 *.docx
+
+#vscode
+.vscode/
