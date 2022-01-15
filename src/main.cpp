@@ -2,43 +2,30 @@
 #include "isfml.hpp"
 #include "area.hpp"
 
-#define VH = 1920
-#define VW = 1080
+#define VW 1920
+#define VH 1080
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(VH, VW), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
+  sf::RenderWindow window(sf::VideoMode(VW, VH), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
 
-  sf::Texture N;
-  if(!N.loadFromFile("img/N.png")) {
-    printf("N.png not found!\n");
-    return 1;
-  }
-  sf::Texture E;
-  if(!E.loadFromFile("img/E.png")) {
-    printf("E.png not found!\n");
-    return 1;
-  }
-  sf::Texture S;
-  if(!S.loadFromFile("img/S.png")) {
-    printf("S.png not found!\n");
-    return 1;
-  }
-  sf::Texture W;
-  if(!W.loadFromFile("img/W.png")) {
-    printf("W.png not found!\n");
-    return 1;
-  }
+  sf::RectangleShape bg(sf::Vector2f(VW, VH));
+  sf::Texture bgTexture;
+  sf::Vector2u bgSize = bgTexture.getSize();
+  bgSize.x = bgSize.x / 4;
+  bgTexture.loadFromFile("img/bg.png");
+  bg.setPosition(0, 0);
+  bg.setTexture(&bgTexture);
+  bg.setTextureRect(sf::IntRect(0, 0, VW, VH));
 
   int screenView = 0;
 
-  sf::Sprite bg;
 
   Area moveLeft(-1, 0, 101, 1080);
   Area moveRight(1920-100, 0, 101, 1080);
 
   //! main event loop
+  sf::Event evnt;
   while(window.isOpen()) {
-    sf::Event evnt;
     while(window.pollEvent(evnt)) {
       switch(evnt.type) {
         case sf::Event::Closed:
@@ -53,6 +40,10 @@ int main() {
       }
     }
     if(window.hasFocus()) {
+      if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        printf("%d %d\n", sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+      }
+
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)
       || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) window.close();
 
@@ -70,16 +61,16 @@ int main() {
 
     switch(screenView) {
       case 0:
-        bg.setTexture(N);
+        bg.setTextureRect(sf::IntRect(0*VW, 0, VW, VH));
         break;
       case 1:
-        bg.setTexture(E);
+        bg.setTextureRect(sf::IntRect(1*VW, 0, VW, VH));
         break;
       case 2:
-        bg.setTexture(S);
+        bg.setTextureRect(sf::IntRect(2*VW, 0, VW, VH));
         break;
       case 3:
-        bg.setTexture(W);
+        bg.setTextureRect(sf::IntRect(3*VW, 0, VW, VH));
         break;
     }
 
