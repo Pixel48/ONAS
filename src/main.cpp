@@ -162,17 +162,17 @@ sf::RectangleShape m(sf::Vector2f(VW, VH));
     window.draw(d);
     
     switch(screenView) {
-    	case -4:
-    	  m.setTextureRect(sf::IntRect(-4*VW, 0, VW, VH));	
-    	  break;
-    	case -3:
-    		z.setTextureRect(sf::IntRect(-3*VW, 0, VW, VH));
-    		break;
-    	case -2:
-    		s.setTextureRect(sf::IntRect(-2*VW, 0, VW, VH));
-    		break;
     	case -1:
-    		d.setTextureRect(sf::IntRect(-1*VW,0, VW, VH));
+    	  m.setTextureRect(sf::IntRect(-1*VW, 0, VW, VH));	
+    	  break;
+    	case -2:
+    		z.setTextureRect(sf::IntRect(-2*VW, 0, VW, VH));
+    		break;
+    	case -3:
+    		s.setTextureRect(sf::IntRect(-3*VW, 0, VW, VH));
+    		break;
+    	case -4:
+    		d.setTextureRect(sf::IntRect(-4*VW,0, VW, VH));
     		break;
       case 0:
         bg.setTextureRect(sf::IntRect(0*VW, 0, VW, VH));
