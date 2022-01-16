@@ -10,7 +10,7 @@ int main() {
   
   //menu
   
-sf::RectangleShape bg(sf::Vector2f(VW, VH));
+sf::RectangleShape m(sf::Vector2f(VW, VH));
   sf::Texture mTexture;
   sf::Vector2u mSize = mTexture.getSize();
   mTexture.loadFromFile("img.m/menu.screen.png");
