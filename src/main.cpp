@@ -100,11 +100,11 @@ int main() {
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)
       || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) window.close();
 
-      // if(moveLeft.isEntering()) {
-      //   printf("Left\n");
-      //   screenView += 3;
-      //   screenView %= 4;
-      // }
+      if(moveLeft.isEntering()) {
+        printf("Left\n");
+        screenView += 3;
+        screenView %= 4;
+      }
       if(moveRight.isEntering()) {
         printf("Right\n");
         screenView++;
