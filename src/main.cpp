@@ -156,6 +156,11 @@ sf::RectangleShape bg(sf::Vector2f(VW, VH));
 
     window.clear();
     window.draw(bg);
+    window.draw(m);
+    window.draw(z);
+    window.draw(s);
+    window.draw(d);
+    
     switch(screenView) {
     	case -4:
     	  m.setTextureRect(sf::IntRect(-4*VW, 0, VW, VH));	
