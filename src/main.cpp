@@ -7,6 +7,41 @@
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(VW, VH), "ONAS Project", sf::Style::Close | sf::Style::Fullscreen);
+  
+  //menu
+  
+sf::RectangleShape bg(sf::Vector2f(VW, VH));
+  sf::Texture mTexture;
+  sf::Vector2u mSize = mTexture.getSize();
+  mTexture.loadFromFile("img.m/menu.screen.png");
+  m.setPosition(0, 0);
+  m.setTexture(&mTexture);
+  m.setTextureRect(sf::IntRect(0, 0, VW, VH));
+  
+  sf::RectangleShape z(sf::Vector2f(VW, VH));
+  sf::Texture zTexture;
+  sf::Vector2u zSize = zTexture.getSize();
+  zTexture.loadFromFile("img.m/zêbatka (1).png");
+  z.setPosition(0, 0);
+  z.setTexture(&zTexture);
+  z.setTextureRect(sf::IntRect(0, 0, VW, VH));
+  
+   sf::RectangleShape s(sf::Vector2f(VW, VH));
+  sf::Texture sTexture;
+  sf::Vector2u sSize = sTexture.getSize();
+  sTexture.loadFromFile("img.m/Statystyka.png");
+  s.setPosition(0, 0);
+  s.setTexture(&sTexture);
+  s.setTextureRect(sf::IntRect(0, 0, VW, VH));
+  
+  sf::RectangleShape d(sf::Vector2f(VW, VH));
+  sf::Texture dTexture;
+  sf::Vector2u dSize = dTexture.getSize();
+  dTexture.loadFromFile("img.m/DŸwiêk.png");
+  d.setPosition(0, 0);
+  d.setTexture(&dTexture);
+  d.setTextureRect(sf::IntRect(0, 0, VW, VH));
+  //
 
   sf::RectangleShape bg(sf::Vector2f(VW, VH));
   sf::Texture bgTexture;
@@ -122,6 +157,18 @@ int main() {
     window.clear();
     window.draw(bg);
     switch(screenView) {
+    	case -4:
+    	  m.setTextureRect(sf::IntRect(-4*VW, 0, VW, VH));	
+    	  break;
+    	case -3:
+    		z.setTextureRect(sf::IntRect(-3*VW, 0, VW, VH));
+    		break;
+    	case -2:
+    		s.setTextureRect(sf::IntRect(-2*VW, 0, VW, VH));
+    		break;
+    	case -1:
+    		d.setTextureRect(sf::IntRect(-1*VW,0, VW, VH));
+    		break;
       case 0:
         bg.setTextureRect(sf::IntRect(0*VW, 0, VW, VH));
         window.draw(bottle);
