@@ -13,12 +13,13 @@ int main() {
 sf::RectangleShape m(sf::Vector2f(VW, VH));
   sf::Texture mTexture;
   sf::Vector2u mSize = mTexture.getSize();
-  mTexture.loadFromFile("img.m/menu.screen.png");
+  Size.x = Size.x / 4;
+  mTexture.loadFromFile("img.m/menu-bg1.png");
   m.setPosition(0, 0);
   m.setTexture(&mTexture);
   m.setTextureRect(sf::IntRect(0, 0, VW, VH));
   
-  sf::RectangleShape z(sf::Vector2f(VW, VH));
+  /*sf::RectangleShape z(sf::Vector2f(VW, VH));
   sf::Texture zTexture;
   sf::Vector2u zSize = zTexture.getSize();
   zTexture.loadFromFile("img.m/zêbatka (1).png");
@@ -40,7 +41,7 @@ sf::RectangleShape m(sf::Vector2f(VW, VH));
   dTexture.loadFromFile("img.m/DŸwiêk.png");
   d.setPosition(0, 0);
   d.setTexture(&dTexture);
-  d.setTextureRect(sf::IntRect(0, 0, VW, VH));
+  d.setTextureRect(sf::IntRect(0, 0, VW, VH));*/
   //
 
   sf::RectangleShape bg(sf::Vector2f(VW, VH));
@@ -157,24 +158,98 @@ sf::RectangleShape m(sf::Vector2f(VW, VH));
     window.clear();
     window.draw(bg);
     window.draw(m);
-    window.draw(z);
-    window.draw(s);
-    window.draw(d);
+    
+    //buttons
+    Area przycisk1(785, 200, 171, 133);
+
+Area przycisk2(785, 349, 171, 133);
+
+Area przycisk3(785, 540, 171, 133);
+
+Area przyciskstatys(2770, 295, 189, 146);
+
+Area przyciskdzwiek(2770, 450, 187, 187);
+
+Area przyciskplus(6177, 400, 230, 220);
+
+Area przyciskminus(7061, 400, 230, 220);
+
+Area przyciskglosnosc(6606, 778, 230, 200);
     
     switch(screenView) {
     	
     	case -4:
-    		d.setTextureRect(sf::IntRect(-4*VW,0, VW, VH));
+    		window.clear();
+    		m.setTextureRect(sf::IntRect(-4*VW,0, VW, VH));
+    		if(przyciskplus.isClicked())
+    		{
+    			//turn the volume up
+			}
+			else if(przyciskminus.isClicked())
+			{
+				//turn the vulome down
+			}
+			else if(przyciskglosnosc.isCliked())
+			{
+				//turn off or turn on the volume
+			}
+			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+			{
+			 screenView=	 -2;
+			}
     		break;
+    	
     
     	case -2:
-    		z.setTextureRect(sf::IntRect(-2*VW, 0, VW, VH));
+    		window.clear();
+    		m.setTextureRect(sf::IntRect(-2*VW, 0, VW, VH));
+    		if(przyciskstatys.isClicked())
+    		{
+    			screenView=	 -3;
+			}
+			else if(przyciskdzwiek.isClicked())
+			{
+				screenView=	 -4;
+			}
+			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+			{
+				screenView=	-1;
+			}
     		break;
     	case -3:
-    		s.setTextureRect(sf::IntRect(-3*VW, 0, VW, VH));
+    		window.clear();
+    		m.setTextureRect(sf::IntRect(-3*VW, 0, VW, VH));
+    		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+    		{
+    			screenView=	 -2;
+			}
     		break;
     	case -1:
+    		window.clear();
     	  m.setTextureRect(sf::IntRect(-1*VW, 0, VW, VH));	
+    	  if(przycisk1.isClicked())
+    	  {
+    	  	przycisk1.disable();
+    	  	przycisk2.disable();
+    	  	przycisk3.disable();
+    	  	przyciskstatys.disable();
+    	  	przyciskdzwiek.disable();
+    	  	przyciskplus.disable();
+    	  	przyciskminus.disable();
+    	  	przyciskglosnosc.disable();
+    	  	
+    	  	screenView= 0;
+    	  	break;
+		  }
+		  else if(przycisk2.isClicked())
+		  {
+		  	screenView= -2;
+		  }
+		  else if(przycisk3.isClicked())
+		  {
+		  	window.close(exit(0));
+		  }
+		  
     	  break;
       case 0:
         bg.setTextureRect(sf::IntRect(0*VW, 0, VW, VH));
