@@ -13,7 +13,7 @@ int main() {
 sf::RectangleShape m(sf::Vector2f(VW, VH));
   sf::Texture mTexture;
   sf::Vector2u mSize = mTexture.getSize();
-  Size.x = Size.x / 4;
+  mSize.x = mSize.x / 4;
   mTexture.loadFromFile("img.m/menu-bg1.png");
   m.setPosition(0, 0);
   m.setTexture(&mTexture);
@@ -189,7 +189,7 @@ Area przyciskglosnosc(6606, 778, 230, 200);
 			{
 				//turn the vulome down
 			}
-			else if(przyciskglosnosc.isCliked())
+			else if(przyciskglosnosc.isClicked())
 			{
 				//turn off or turn on the volume
 			}
@@ -247,7 +247,8 @@ Area przyciskglosnosc(6606, 778, 230, 200);
 		  }
 		  else if(przycisk3.isClicked())
 		  {
-		  	window.close(exit(0));
+		  	window.close();
+		  	exit(0);
 		  }
 		  
     	  break;
